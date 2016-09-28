@@ -1,0 +1,39 @@
+ <!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Bunny Defender</title>
+    <script src="libs/phaser.js"></script>
+    <script src="Boot.js"></script>
+    <script src="Preloader.js"></script>
+    <script src='StartMenu.js'></script>
+    <script src='Game.js'></script>
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+			background-color: #000000;
+		}
+	</style>
+</head>
+<body>
+    <div id="gameContainer"></div>
+    <script type="text/javascript">
+    window.onload = function(){
+        //configure our game for Phaser and its height width with how we want to render it and pass our gameContainer(ref to div)
+        var game = new Phaser.Game(540,960,Phaser.AUTO,'gameContainer')
+        //add state to our game
+        game.state.add('Boot',BunnyDefender.Boot);
+        game.state.add('Preloader',BunnyDefender.Preloader);
+        
+        game.state.add('StartMenu',BunnyDefender.StartMenu);
+        game.state.add('Game',BunnyDefender.Game);
+    //to start our game
+        game.state.start('Boot');
+        
+        
+    }
+    
+    </script>
+</body>
+</html>
